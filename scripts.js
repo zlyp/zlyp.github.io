@@ -7057,48 +7057,6 @@ function loadWdbyxxdj(id){
 				});
 				$('#graPhotoFile-button').css('line-height','15px');
 				return;
-				/*$("#graPhotoFile").uploadify({
-			        'swf': basePath+'web/ui/plugins/uploadify/uploadify.swf',
-			        'uploader': basePath+"/FileUploadServlet?savePath=studentImg",
-			        'auto': true,
-			        'multi': false,
-			        'queueID' : 'graPhotoQueue',
-			        "buttonText": "上传毕业证件照",
-			        'fileSizeLimit':'3MB',
-			        'fileTypeExts': '*.jpg; *.jpeg; *.png;',
-			        "buttonClass": "btn btn-primary",
-			        'overrideEvents': ['onDialogClose'],
-			      //返回一个错误，选择文件的时候触发  
-			        'onSelectError': function (file, errorCode, errorMsg) {  
-			            switch (errorCode) {  
-			            case -100: 
-		                	messageDialogShow("提示","上传的文件数量已经超出系统限制的" + $('#graPhotoFile').uploadify('settings', 'queueSizeLimit') + "个文件！", 2);
-		                    return;  
-		                case -110: 
-		                	messageDialogShow("提示","文件 [" + file.name + "] 大小超出系统限制的" + $('#graPhotoFile').uploadify('settings', 'fileSizeLimit') + "大小！", 2);
-		                    return;  
-		                case -120:  
-		                	messageDialogShow("提示","文件 [" + file.name + "] 大小异常！", 2);
-		                    return;  
-		                case -130:
-		                	messageDialogShow("提示","文件 [" + file.name + "] 类型不正确！", 2);
-		                    return;  
-			            }  
-			        },
-			        'onUploadSuccess': function (file, data, response) {// 上传成功后执行
-			        	data = JSON.parse(data);
-			        	var path = data.value.replace('//','/').replace('/Liems/','');
-			        	$('#graPhoto').val(path);
-		                $('#' + file.id).find('.data').html('上传完毕');
-		                document.getElementById('photoImgE').src = basePath+path;
-		                $("#graPhotoEmptyImageButton").css("display","block");
-		             },
-		             'onFallback': function () {
-		            	//alert('未检测到兼容版本的Flash.');
-		                 messageDialogShow('提示','未检测到兼容版本的Flash！', 2);
-		             }
-			    });*/
-				$('#graPhotoFile-button').css('line-height','15px');
 			}
 			if(checkedState=='01'||checkedState=='02'){
 				$('#graPhotoFile').css("display","none");
@@ -8458,16 +8416,16 @@ function showUploadGd(attachId,pkValue,fieldName, typ, isCheck){
 		}
 	}
 	
-	var result = web.ajax(basePath+'edu/jw/eduGdDesign/checkGdPaperDate.ajax',{pkValue:pkValue},false);
-	if(result.state != 0){
-		messageInfoShow("提示", result.msg);
-		flag = false;
-	}
-	if(!flag){
-		return;
-	}
+	// var result = web.ajax(basePath+'edu/jw/eduGdDesign/checkGdPaperDate.ajax',{pkValue:pkValue},false);
+	// if(result.state != 0){
+	// 	messageInfoShow("提示", result.msg);
+	// 	flag = false;
+	// }
+	// if(!flag){
+	// 	return;
+	// }
 	
-	if (flag) {
+	// if (flag) {
 		var url=basePath+'web/edu/modal/uploadAttachGd.jsp?attachId='+attachId+"&typ="+ typ +"&pkValue="+pkValue+"&entityName=org.aweto.edu.entity.jw.EduGdDesign&fieldName="+fieldName;
 		layer.open({
 			type: 2,
@@ -8485,7 +8443,7 @@ function showUploadGd(attachId,pkValue,fieldName, typ, isCheck){
 				loadGraduationInformation('graduationInformation');
 			}
 		});
-	}
+	// }
 }
 
 /**
