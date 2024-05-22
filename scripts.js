@@ -8464,14 +8464,14 @@ function showUploadGdCg(attachId,pkValue,fieldName, typ, isCheck){
 		}
 	}
 	//学生端日期校验
-	var result = web.ajax(basePath+'edu/jw/eduGdDesign/checkGdPaperDate.ajax',{pkValue:pkValue},false);
-	if(result.state != 0){
-		messageInfoShow("提示", result.msg);
-		flag = false;
-	}
-	if(!flag){
-		return;
-	}
+	// var result = web.ajax(basePath+'edu/jw/eduGdDesign/checkGdPaperDate.ajax',{pkValue:pkValue},false);
+	// if(result.state != 0){
+	// 	messageInfoShow("提示", result.msg);
+	// 	flag = false;
+	// }
+	// if(!flag){
+	// 	return;
+	// }
 	
 	//是否开启了互动校验
 	web.ajax(basePath+'edu/jw/eduGdDesign/interactCheck.ajax',{pkValue:pkValue},false,function(r){
